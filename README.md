@@ -1,6 +1,6 @@
 # Template ENCE
 - Geradas inicialmente por Leandro Marino 2014;
-- Alteradas e atualizadas por Mirna Tetzner Ramos em 2025;
+- Alteradas e atualizadas por Mirna Tetzner Ramos e Juliana Fernandes Dal Piaz em 2025;
 
 
 Modelo para dissertações e teses da Escola Nacional de Ciências Estatísticas (ENCE).
