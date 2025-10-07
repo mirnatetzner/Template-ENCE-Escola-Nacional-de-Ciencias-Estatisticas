@@ -1,0 +1,124 @@
+
+% INICIO DAS CUSTOMIZACOES PARA A ESCOLA NACIONAL DE CIÊNCIAS ESTATÍSTICAS
+% ---
+%\usepackage{float}
+%\usepackage{graphicx}
+
+
+\newcommand{\membroumname}{Membro um:}
+\newcommand{\membrodoisname}{Membro dois:}
+
+
+% Comandos de dados - Membro da banca um
+\providecommand{\imprimirmembroumRotulo}{}
+\providecommand{\imprimirmembroum}{}
+\newcommand{\membroum}[2][\membroumname]%
+  {\renewcommand{\imprimirmembroumRotulo}{#1}%
+   \renewcommand{\imprimirmembroum}{#2}}
+   
+% Comandos de dados - Membro da banca dois
+\providecommand{\imprimirmembrodoisRotulo}{}
+\providecommand{\imprimirmembrodois}{}
+\newcommand{\membrodois}[2][\membrodoisname]%
+  {\renewcommand{\imprimirmembrodoisRotulo}{#1}%
+   \renewcommand{\imprimirmembrodois}{#2}}
+
+
+% Capa de acordo com o template da ENCE ( Alterado por: Juliana Piaz em 10/08/2025 )
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \centering
+    % Duas imagens lado a lado
+    \begin{minipage}[b]{0.48\textwidth}
+      \centering
+      \includegraphics[width=6cm]{config/logo_ibge.pdf}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[b]{0.48\textwidth}
+      \centering
+      \includegraphics[width=3cm]{config/logo_ence.pdf}
+    \end{minipage}
+
+    \vspace{1cm}
+
+    {\fontsize{16pt}{12pt}\selectfont\bfseries
+      INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA \par
+      ESCOLA NACIONAL DE CIÊNCIAS ESTATÍSTICAS
+    }
+
+    \vspace{2cm}
+
+    {\fontsize{16pt}{12pt}\selectfont\bfseries
+      PROGRAMA DE PÓS-GRADUAÇÃO POPULAÇÃO, TERRITÓRIO E ESTATÍSTICAS PÚBLICAS
+    }
+
+    \vspace{1cm}
+
+    {\fontsize{14pt}{12pt}\selectfont\bfseries
+      DISSERTAÇÃO DE MESTRADO
+    }
+
+    \vspace{1cm}
+
+    {\fontsize{14pt}{12pt}\selectfont\bfseries
+      \imprimirtitulo
+    }
+
+    \vspace{1cm}
+
+    {\fontsize{14pt}{12pt}\selectfont\bfseries
+      \imprimirautor
+    }
+
+    \vspace{6cm}
+
+    {\imprimirlocal \par
+    \imprimirdata
+    }
+  \end{capa}
+}
+
+
+%______________________________________________________________________________________________________
+% folha de rosto
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+  \begin{center}
+    {\ABNTEXchapterfont\large\bfseries INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA \par
+     ESCOLA NACIONAL DE CIÊNCIAS ESTATÍSTICAS}
+
+    \vspace*{1cm}
+    
+    {\ABNTEXchapterfont\bfseries\large\imprimirtitulo}
+    
+    \vspace*{1cm}
+    
+    {\ABNTEXchapterfont\bfseries\large\imprimirautor}
+    
+    \vspace*{1cm}
+    
+    {\ABNTEXchapterfont\bfseries\large Dissertação}
+    
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+        \hspace{.7\textwidth}  \centering
+        \begin{minipage}{.7\textwidth}
+        \imprimirpreambulo
+        \end{minipage}%
+    }%
+    
+    \vspace*{1cm}
+    
+    {\ABNTEXchapterfont\bfseries Mestre em População, Território e Estatísticas Públicas}
+    
+    \vspace*{\fill}
+    
+    {\imprimirlocal \par \imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+}
+\makeatother
+%------
+% FIM DAS CUSTOMIZACOES PARA A ESCOLA NACIONAL DE CIÊNCIAS ESTATÍSTICAS
+% ---
+

@@ -1,0 +1,280 @@
+\documentclass[12pt,openright,oneside,a4paper,chapter=TITLE,english,french,spanish,brazil]{abntex2}
+
+% tlmgr install abntex2 memoir xpatch booktabs textcase babel-portuges enumitem fontspec xstring pict2e diagbox makecell caption float algorithms soul xcolor xcolor
+
+
+% Documentação das customizações em abntex2 para a ENCE
+
+% Geradas inicialmente por Leandro Marino 2014;
+% Alteradas e atualizadas por Mirna Tetzner Ramos em 2025;
+
+
+% Carrega as configuracoes
+\input{config/packages.tex}
+\input{config/set_definitions.tex}
+\input{config/bibliography.tex}
+\input{config.tex}
+
+
+% Configuração comum para todas as páginas
+\fancypagestyle{plain}{ % Estilo para páginas iniciais
+  \fancyhf{} % Limpa todos os cabeçalhos/rodapés
+  \fancyfoot[C]{\thepage} % Número centralizado no rodapé
+  \renewcommand{\headrulewidth}{0pt} % Remove linha do cabeçalho
+  \renewcommand{\footrulewidth}{0pt} % Remove linha do Rodapé
+}
+
+% Configuração para páginas textuais
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage} % Número centralizado
+\renewcommand{\headrulewidth}{0pt} % Remove linha do cabeçalho
+\renewcommand{\footrulewidth}{0pt} % Remove linha do Rodapé
+
+% Definir o caminho para as imagens
+\graphicspath{ {imagens/} }
+
+% Criar índice
+\makeindex
+
+% Ambientes flutuantes personalizados
+\floatstyle{plaintop}
+\newfloat{grafico}{htbp}{lop}
+\floatname{grafico}{Gráfico}
+\newcommand{\listofgraficos}{\listof{grafico}{Lista de Gráficos}}
+
+\newfloat{quadro}{H}{loq}
+\floatname{quadro}{Quadro}
+\newcommand{\listofquadros}{\listof{quadro}{Lista de Quadros}}
+
+
+% Configurações para reduzir warnings
+\hbadness=10000
+\vfuzz=5pt
+\hfuzz=5pt
+\setlength{\emergencystretch}{3em} % Melhora quebras de linha
+
+
+\begin{document}
+
+
+\imprimircapa
+
+% Folha em branco após a capa
+\cleardoublepage
+\mbox{}
+\thispagestyle{empty}
+\newpage
+
+
+\imprimirfolhaderosto*
+
+% --- PRÉ-TEXTUAL SEM NUMERAÇÃO ---
+\pagenumbering{gobble} % Desativa numeração
+
+% Elementos sem numeração
+% ficha catalográfica
+% folha de aprovação
+% dedicatório
+
+%%%%%%%%%%%%%%%%% FICHA BIBLIOGRÁFICA %%%%%%%%%%%%%%%%%
+ 
+% Inserir a ficha bibliografica
+% ---
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+%%\begin{fichacatalografica}
+%%\includepdf{image/Ficha_catalografica.pdf}
+%%\end{fichacatalografica}
+
+\include{00_Preambulo/01_ficha_catalografica}
+
+%%%%%%%%%%%%%%%%% FOLHA DE APROVAÇÃO %%%%%%%%%%%%%%%%%
+
+%\begin{folhadeaprovacao}
+%Folha de aprovação
+%\includepdf{image/FolhaAPROVACAO.pdf}
+%\end{folhadeaprovacao}
+\include{00_Preambulo/02_folha_aprovacao}
+
+%%%%%%%%%%%%%%%%% DEDICATÓRIA %%%%%%%%%%%%%%%%%
+%
+\include{00_Preambulo/03_dedicatoria}
+
+
+% --- INÍCIO DA NUMERAÇÃO ROMANA ---
+\cleardoublepage
+\pagenumbering{roman} % Ativa numeração romana
+\setcounter{page}{7}  % Começa em vii
+\pagestyle{plain}     % Estilo com numeração no rodapé
+
+% Elementos com numeração romana
+%%%%%%%%%%%%%%%%% AGRADECIMENTOS %%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\thispagestyle{plain}
+\include{00_Preambulo/04_agradecimentos}
+
+
+%%%%%%%%%%%%%%%%% RESUMO %%%%%%%%%%%%%%%%%
+% resumo em português
+
+\include{00_Preambulo/05_resumo}
+
+% resumo em inglês
+\include{00_Preambulo/06_abstract}
+
+%%%%%%%%%%%%%%%%% NÃO EDITAR %%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%% NÃO EDITAR %%%%%%%%%%%%%%%%%
+\cleardoublepage
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents
+
+\cleardoublepage
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables
+
+%
+
+\cleardoublepage
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures
+
+%%%%%%%%%%%%%%%%% SIGLAS %%%%%%%%%%%%%%%%%
+\cleardoublepage
+\include{00_Preambulo/siglas}
+
+%%%%%%%%%%%%%%%%% SÍMBOLOS %%%%%%%%%%%%%%%%%
+\cleardoublepage
+\include{00_Preambulo/simbolos}   
+
+%%%%%%%%%%%%%%%%% GRÁFICOS %%%%%%%%%%%%%%%%%
+\cleardoublepage
+\listofgraficos
+\clearpage
+
+%%%%%%%%%%%%%%%%% QUADROS %%%%%%%%%%%%%%%%%
+%\listofquadros % lista de quadros
+%\clearpage     % quebra de página
+
+
+
+% ---
+\cleardoublepage
+\textual%
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+%%%%% Corpo principal do texto. Cada arquivo 'root' dentro das pastas dos capítulos reúne os arquivos que possuem o texto corrido. Devendo com include ou input, sempre ser colocado na ordem de apresentação dos elementos.
+
+\include{01_Introducao/root}  
+%
+\include{02_Revisao/root}
+%
+\include{03_Base/root}
+%
+\include{04_Metodologia/root}
+%
+\include{05_Resultados/root}
+
+\include{06_Conclusao/root}
+
+
+\bookmarksetup{startatroot}% 
+%
+
+\postextual%
+
+\renewcommand{\bibname}{Refer\^encias}
+\bibliography{referencias}
+
+\pagebreak 
+%
+ 
+%
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%Capítulo excluído
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+% ---
+%%%%%%%%%%%%%%%%% EDITAR APENDICES %%%%%%%%%%%%%%%%%
+\renewcommand{\partapendices}{
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+% Nova macro sem quebra de página
+\newcommand{\partapendicesinline}{%
+  % Não chama \clearpage ou \pretextualchapter
+  {\centering
+    \bfseries
+    % \fontspec{Calibri}
+    \fontsize{14pt}{16pt}\selectfont
+    \MakeUppercase{APÊNDICES}%
+    \par}
+}
+\makeatother
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+% Novo comando para subtítulos de apêndice
+\newcommand{\subapendice}[2]{%
+  \par\noindent\textbf{APÊNDICE #1 -- #2}%
+  \par\vspace{0.5em}%
+}
+
+\begin{apendicesenv}
+
+\partapendices
+\noindent
+
+%% ----------------------------------------------------------
+
+\subapendice{A}{GRÁFICOS DA TEF PARA BRASIL, REGIÃO E UF}
+\noindent
+\input{Apendice/graficos_tefs.tex}
+\FloatBarrier
+
+\clearpage
+
+\subapendice{B}{SIMULAÇÃO E EXTRAÇÃO DAS MÉTICAS DE SIMILARIDADE DA TEF E TFT}
+\noindent
+\input{Apendice/codigo_simulacao.tex}
+
+\FloatBarrier
+\clearpage
+
+\end{apendicesenv}
+
+%%%%%%%%%%%%%%%%% EDITAR ANEXOS %%%%%%%%%%%%%%%%%
+%\begin{anexosenv}
+
+%\partanexos
+%
+%\chapter{Capitulo}
+
+%\chapter{Capitulo}
+%% 
+%\end{anexosenv}
+
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+\printindex
+%
+\end{document}
