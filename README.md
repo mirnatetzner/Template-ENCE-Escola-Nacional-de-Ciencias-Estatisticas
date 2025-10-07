@@ -9,6 +9,7 @@ Trata-se de um modelo elaborado e utilizado pela autora em seu próprio trabalho
 ## Uso
 
 ### Opção 1
+
 O repositório pode ser baixado e depois realizar upload no [Overleaf](https://www.overleaf.com/). 
 
 ### Opção 2: Linux 
@@ -19,5 +20,13 @@ O repositório pode ser baixado e depois realizar upload no [Overleaf](https://w
 
 [Instalar o Latex no Windows](https://miktex.org/)
 
-
 Sugiro para as opções 2 e 3 utilizar o [VSCODE](https://code.visualstudio.com/) com a extensão [latex-workshop.](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+
+### Opção 4: Docker
+
+Rodar com overleaf local [(overleaf-toolkit) no Docker](https://github.com/overleaf/toolkit/blob/master/doc/quick-start-guide.md)
+
+Instalar, dentro do container do sharelatex:
+```bash
+tlmgr install abntex2 memoir xpatch booktabs textcase babel-portuges enumitem fontspec xstring pict2e diagbox makecell caption float algorithms soul xcolor 
+```
