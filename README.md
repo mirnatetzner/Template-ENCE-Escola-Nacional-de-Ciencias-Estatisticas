@@ -13,7 +13,7 @@ Trata-se de um modelo elaborado e utilizado pela autora em seu próprio trabalho
 
 ### Opção 1
 
-O repositório pode ser baixado e depois realizar upload no [Overleaf](https://www.overleaf.com/). 
+É possível baixar o repositório e fazer o upload no [Overleaf](https://www.overleaf.com/). 
 
 ### Opção 2: Linux 
 
